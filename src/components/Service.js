@@ -13,11 +13,11 @@ function Service() {
         <div>
             <Header />
             <h1>service {service.count}</h1>
-            {service.items.map((item) => (
-                <div key={item.id}>{item.title}</div>
-            ))}
             <button onClick={getData}>get data</button>
             <button onClick={increaseCount}>increase count</button>
+            {service.items.map((item, i) => (
+                <div key={i}>{item.title}</div>
+            ))}
         </div>
     ));
 }

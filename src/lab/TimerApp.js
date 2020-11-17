@@ -1,13 +1,19 @@
-import React from 'react';
-import { makeAutoObservable } from 'mobx';
+import React, { useEffect } from 'react';
+import { makeAutoObservable, makeObservable, observable } from 'mobx';
 import { observer } from 'mobx-react';
+import userEvent from '@testing-library/user-event';
 
 class Timer {
     hours = 0;
     seconds = 0;
     minutes = 0;
     constructor() {
-        makeAutoObservable(this);
+        makeObservable(this, {
+            hours: observable,
+            seconds: observable,
+            minutes: observable,
+        });
+        // makeAutoObservable(this);
     }
     increaseHour() {
         this.hours += 1;
@@ -20,22 +26,22 @@ class Timer {
     increaseMinutes() {
         this.minutes += 1;
     }
-
-    reset() {
-        this.minutes = 0;
-        this.seconds = 0;
-    }
 }
 
 const timer = new Timer();
 
 const App = observer(({ timer }) => {
     console.log('rerender ' + Date.now());
+    useEffect(() => {
+        console.log(timer.seconds);
+    }, []);
     return (
         <div>
             <h1>timer</h1>
             <div>
-                {timer.hours}시 {timer.minutes}분
+                <span>{timer.hours}시</span>
+                <span>{timer.minutes}분</span>
+                {/* <span>{timer.seconds}</span> */}
             </div>
             <button onClick={() => timer.increaseHour()}>+시</button>
             <button onClick={() => timer.increaseMinutes()}>+분</button>

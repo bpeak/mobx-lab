@@ -1,4 +1,4 @@
-import { makeAutoObservable } from 'mobx';
+import { makeAutoObservable, makeObservable, observable } from 'mobx';
 
 let id = 0;
 export default class Board {
@@ -8,6 +8,12 @@ export default class Board {
     constructor() {
         makeAutoObservable(this);
     }
+    setTitle(title) {
+        this.title = title;
+    }
+    setContent(content) {
+        this.content = content;
+    }
     add(board) {
         this.items.push({
             ...board,
@@ -15,11 +21,5 @@ export default class Board {
         });
         this.title = '';
         this.content = '';
-    }
-    setTitle(title) {
-        this.title = title;
-    }
-    setContent(content) {
-        this.content = content;
     }
 }

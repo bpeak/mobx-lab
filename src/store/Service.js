@@ -8,7 +8,6 @@ export default class Service {
         makeAutoObservable(this);
     }
     increaseCount() {
-        console.log('DDD');
         this.count++;
     }
     getData(id) {

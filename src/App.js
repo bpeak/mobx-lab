@@ -5,6 +5,7 @@ import Board from './components/Board';
 import Write from './components/Write';
 import Login from './components/Login';
 import Service from './components/Service';
+import Rect from './components/Rect';
 
 export default function App() {
     return (
@@ -14,10 +15,12 @@ export default function App() {
                 <Link to="/write">write</Link>
                 <Link to="/login">login</Link>
                 <Link to="/service">service</Link>
+                <Link to="/rect">rect</Link>
                 <Route path="/board" component={Board} />
                 <Route path="/write" component={Write} />
                 <Route path="/login" component={Login} />
                 <Route path="/service" component={Service} />
+                <Route path="/rect" component={Rect} />
             </Router>
         </StoreProvider>
     );
