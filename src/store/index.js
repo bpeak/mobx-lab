@@ -1,6 +1,7 @@
 import { createContext, useContext } from 'react';
 import Board from './Board';
 import User from './User';
+import Service from './Service';
 
 const StoreContext = createContext();
 
@@ -9,6 +10,7 @@ export const StoreProvider = ({ children }) => (
         value={{
             board: new Board(),
             user: new User(),
+            service: new Service(),
         }}
     >
         {children}
