@@ -1,7 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import { useStore } from '../store';
-import { Observer, useObserver } from 'mobx-react';
-import userEvent from '@testing-library/user-event';
+import { Observer } from 'mobx-react';
 
 // https://github.com/mobxjs/mobx-react/issues/505
 

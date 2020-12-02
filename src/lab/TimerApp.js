@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
-import { makeAutoObservable, makeObservable, observable } from 'mobx';
+import { makeObservable, observable } from 'mobx';
 import { observer } from 'mobx-react';
-import userEvent from '@testing-library/user-event';
 
 class Timer {
     hours = 0;
