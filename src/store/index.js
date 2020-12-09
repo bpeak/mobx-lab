@@ -3,6 +3,7 @@ import Board from './Board';
 import User from './User';
 import Service from './Service';
 import Rect from './Rect';
+import Chat from './Chat';
 
 const StoreContext = createContext();
 
@@ -13,6 +14,7 @@ export const StoreProvider = ({ children }) => (
             user: new User(),
             service: new Service(),
             rect: new Rect(),
+            chat: new Chat(),
         }}
     >
         {children}
